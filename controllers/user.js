@@ -38,9 +38,11 @@ exports.postUserData = (req, res, next) => {
         from: "myComfortApp@gmail.com",
         subject: "Inscription réussite  🎉",
         html: `<h5>Mr/Mme ${nom}, votre inscription a été bien enregistrée. Nous vous remercions pour votre collaboration.</h5>`,
-    })
-    }).then((result)=> {
-      console.log('Email sent.')
+      }).then((result)=> {
+        console.log('Email sent.')
+      }).catch((err) => {
+        console.log(err)
+      })
     })
     .catch((err) => console.log(err));
 };
