@@ -4,7 +4,6 @@ const mongoose = require('mongoose');
 const userRouter = require('./routes/user.js');
 const dataRouter = require('./routes/data.js');
 const flash = require('connect-flash');
-const server = require('http').createServer(); 
 
 require('dotenv').config();
 
@@ -18,16 +17,22 @@ connection.once('open', ()=> {
     console.log('MongoDB database connection established successfully')
 })
 
-app.use(cors());
 app.use(flash());
+app.use(cors());
 
 app.use(express.json());
 
 app.use(userRouter);
 app.use(dataRouter);
 
+//developpement 
+// app.listen(5000, ()=> {
+//     console.log('localhost')
+// });
 
- 
-app.listen(port, ()=> {
+
+ // production
+const server = app.listen(port, ()=> {
+    const port = server.address().port;
     console.log('server is running on port :', port);
 })
