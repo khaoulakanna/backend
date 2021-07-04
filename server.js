@@ -3,7 +3,7 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const userRouter = require('./routes/user.js');
 const dataRouter = require('./routes/data.js');
-const flash = require('connect-flash');
+
 
 require('dotenv').config();
 
@@ -17,7 +17,7 @@ connection.once('open', ()=> {
     console.log('MongoDB database connection established successfully')
 })
 
-app.use(flash());
+
 app.use(cors());
 
 app.use(express.json());
