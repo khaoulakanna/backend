@@ -13,6 +13,10 @@ const dataSchema = new Schema(
       type: Number,
       required: true
     },
+    sousZoneId: {
+      type: Number,
+      required: true,
+    },
     climat: {
       type: String,
       required: true
